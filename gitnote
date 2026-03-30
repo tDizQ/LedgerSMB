@@ -1,7 +1,10 @@
 #!/bin/bash
 
-cd "$(dirname "$0")"
+cd "$(dirname "$0")" || exit
 
-git add notes-trixie.md
-git commit -m "Update Trixie notes $(date '+%Y-%m-%d %H:%M')"
+BRANCH=$(git branch --show-current)
+NOTE="notes-${BRANCH}.md"
+
+git add "$NOTE"
+git commit -m "Update ${BRANCH} notes $(date '+%Y-%m-%d %H:%M')"
 git push
