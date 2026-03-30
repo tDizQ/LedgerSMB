@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd "$(dirname "$0")"
+
+git add notes-trixie.md
+git commit -m "Update Trixie notes $(date '+%Y-%m-%d %H:%M')"
+git push
